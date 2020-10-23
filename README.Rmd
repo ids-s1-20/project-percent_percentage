@@ -1,6 +1,6 @@
 ---
 title: Project title
-author: by Team name
+author: percentage-%
 output: github_document
 ---
 
