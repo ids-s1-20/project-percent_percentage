@@ -1,26 +1,16 @@
-Project title
+Coffee Ratings
 ================
 percentage-%
 
 ## Summary
 
-Write-up of your project and findings go here. Think of this as the text
-of your presentation. The length should be roughly 5 minutes when read
-out loud. Although pacing varies, a 5-minute speech is roughly 750
-words. To use the word count addin, select the text you want to count
-the words of (probably this is the Summary section of this document, go
-to Addins, and select the `Word count` addin). This addin counts words
-using two different algorithms, but the results should be similar and as
-long as you’re in the ballpark of 750 words, you’re good\! The addin
-will ignore code chunks and only count the words in prose.
+As we all know, nowadays people are more and more getting used to having a cup of coffee in the morning to start the day. Therefore, an increasing amount of coffee lovers are trying to research the quality of coffees so that higher quality of coffee can be provided to the world. In order to find out how the quality of coffee can be related to other factors such as farms or companies, we are employing the database from TidyTuesday with the source James LeDoux & Coffee Quality Database. 
 
-You can also load your data here and present any analysis results /
-plots, but I strongly urge you to keep that to a minimum (maybe only the
-most important graphic, if you have one you can choose). And make sure
-to hide your code with `echo = FALSE` unless the point you are trying to
-make is about the code itself. Your results with proper output and
-graphics go in your presentation, this space is for a brief summary of
-your project.
+# Coffee Ratings
+
+The data this week comes from James LeDoux & Coffee Quality Database (https://github.com/jldbc/coffee-quality-database). 
+This Yorgos Askalidis - TWD (https://towardsdatascience.com/the-data-speak-ethiopia-has-the-best-coffee-91f88ed37e84) talks about Coffee Ratings in greater detail.
+Credit: %(Percentage) 
 
 ## Presentation
 
