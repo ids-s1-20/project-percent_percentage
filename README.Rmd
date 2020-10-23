@@ -32,9 +32,9 @@ Our presentation can be found [here](presentation/presentation.html).
 
 ## Data 
 
-Include a citation for your data here. 
-See http://libraryguides.vu.edu.au/c.php?g=386501&p=4347840 for guidance on proper citation for datasets. 
-If you got your data off the web, make sure to note the retrieval date.
+Askalidis, Y. (2019, March 26). The data is in: Ethiopia has the best coffee. Retrieved October 23, 2020, from https://towardsdatascience.com/the-data-speak-ethiopia-has-the-best-coffee-91f88ed37e84
+
+LeDoux, J. (2018, June 17). Jldbc/coffee-quality-database. Retrieved October 23, 2020, from https://github.com/jldbc/coffee-quality-database
 
 ## References
 
