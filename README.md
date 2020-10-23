@@ -4,7 +4,9 @@ percentage-%
 
 ## Summary
 
-As we all know, nowadays people are more and more getting used to having a cup of coffee in the morning to start the day. Therefore, an increasing amount of coffee lovers are trying to research the quality of coffees so that higher quality of coffee can be provided to the world. In order to find out how the quality of coffee can be related to other factors such as farms or companies, we are employing the database from TidyTuesday with the source James LeDoux & Coffee Quality Database. 
+Coffee, a more and more popular beverage all over the world, is having a critical position in people's life. A cup of coffee of good quality in the morning will make a good start of the day for most people. Therefore, coffee lovers and some professional beverage investors are trying to figure out what factors will influence the quality of coffee so as to produce higher quality of coffee.
+
+In order to research deeper on it, we employed the data from James LeDoux & Coffee Quality Database and Yorgos Askalidis - TWD to explore the vital factors of a cup of high-quality coffee. 
 
 # Coffee Ratings
 

@@ -27,7 +27,12 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300)
 ```
 
 ```{r load-data, include=FALSE}
-# Load your data here
+tuesdata <- tidytuesdayR::tt_load('2020-07-07')
+tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+
+coffee_ratings <- tuesdata$coffee_ratings
+
+coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv')
 ```
 
 
