@@ -13,7 +13,14 @@ Credit: %(Percentage)
 
 
 ```{r load-data, echo = FALSE}
-# load data here, if you like
+# install.packages("tidytuesdayR"
+
+tuesdata <- tidytuesdayR::tt_load('2020-07-07')
+tuesdata <- tidytuesdayR::tt_load(2020, week = 28)
+
+coffee_ratings <- tuesdata$coffee_ratings
+
+coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv')
 ```
 
 ## Presentation
