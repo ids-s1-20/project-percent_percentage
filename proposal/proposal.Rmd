@@ -2,6 +2,8 @@
 title: "Project proposal"
 author: "Percentage"
 output: github_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r load-packages, message = FALSE}
@@ -12,6 +14,8 @@ library(broom)
 ## 1. Introduction
 
 As we all know, nowadays people are more and more getting used to having a cup of coffee in the morning to start the day. Therefore, an increasing amount of coffee lovers are trying to research the quality of coffees so that higher quality of coffee can be provided to the world. In order to find out how the quality of coffee can be related to other factors such as farms or companies, we are employing the database from TidyTuesday with the source James LeDoux & Coffee Quality Database. 
+
+We are assuming that various variables such as the altitude of origin, variety, processing method, and color of coffee samples might have the possibility to influence the quality of the coffee. In our project, our goal is to explore the correlation between processing method and total cup points. Additionally, we will try to find out what other kinds of variables will influence total cup points under the same circumstance of processing method.
 
 
 ## 2. Data
