@@ -15,6 +15,9 @@ As we all know, nowadays people are more and more getting used to having a cup o
 
 
 ## 2. Data
+```{r}
+glimpse(coffee_ratings)
+```
 
 
 

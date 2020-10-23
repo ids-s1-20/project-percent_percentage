@@ -8,6 +8,7 @@ Coffee, a more and more popular beverage all over the world, is having a critica
 
 In order to research deeper on it, we employed the data from James LeDoux & Coffee Quality Database and Yorgos Askalidis - TWD to explore the vital factors of a cup of high-quality coffee. 
 
+At the beginning of the 
 # Coffee Ratings
 
 The data this week comes from James LeDoux & Coffee Quality Database (https://github.com/jldbc/coffee-quality-database). 
