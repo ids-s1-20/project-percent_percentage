@@ -1,6 +1,6 @@
 # data
 
-Place data file(s) in this folder.
+Dimension: 1,339 rows, 43 columns
 
 ## coffee_ratings
 

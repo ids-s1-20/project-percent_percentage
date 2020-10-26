@@ -20,8 +20,11 @@ We are assuming that various variables such as the altitude of origin, variety, 
 
 ## 2. Data
 ```{r}
+coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv')
+write_csv(x = coffee_ratings, paste(getwd(), "/data/<coffee_ratings.csv>", sep = ""))
 glimpse(coffee_ratings)
-write_csv(x = coffee_ratings, paste(getwd(), "/data/<file.csv>", sep = ""))
+ratings <- coffee_ratings %>%
+  select("total_cup_points ", )
 ```
 
 
