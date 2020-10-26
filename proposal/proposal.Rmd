@@ -21,6 +21,7 @@ We are assuming that various variables such as the altitude of origin, variety, 
 ## 2. Data
 ```{r}
 glimpse(coffee_ratings)
+write_csv(x = coffee_ratings, paste(getwd(), "/data/<file.csv>", sep = ""))
 ```
 
 
