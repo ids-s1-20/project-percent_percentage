@@ -17,6 +17,8 @@ As we all know, nowadays people are more and more getting used to having a cup o
 
 We are assuming that various variables such as the altitude of origin, variety, processing method, and color of coffee samples might have the possibility to influence the quality of the coffee. In our project, our goal is to explore the correlation between processing method and total cup points. Additionally, we will try to find out what other kinds of variables will influence total cup points under the same circumstance of processing method.
 
+Therefore, we’ve selected the following variables from the data, including "total_cup_points", "species", "country_of_origin", "company", "altitude”, "harvest_year", "processing_method”, "variety", "color", "moisture".
+
 
 ## 2. Data
 
