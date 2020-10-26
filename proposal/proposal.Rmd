@@ -32,6 +32,11 @@ glimpse(ratings)
 
 
 ## 3. Data analysis plan
+The variable on the y-axis will always be the total rating/points (0-100 scale), and the variable on x-axis is “processing method” in the first place. Then we will add some relative variables to group the data or  replace x-variable to any other variables which may determine the total rating/points of the coffee. The comparison group we are going to use are “species”, “country of origin”, and “company”. 
+
+In order to have a better comprehension between the total coffee rating/points and the various relative variables, we will display the data with a scatter plot so as to observe the correlation (r). If most of the scattered points in all the graphs are almost evenly distributed around a line (r is close to 1 or -1), we can conclude that the variable does contribute a lot on the coffee's Total rating/points, which is an important determinant. On the contrary, when the correlation is close to 0, we can conclude that the variable is almost irrelevant to the total rating/points of the coffee. 
+
+For group comparison, we will compare the data by displaying them in histogram. By comparing the height of each bin, we can readily tell which specific kind of variable is more popular in the ratings.
 
 
 
