@@ -1,6 +1,6 @@
 Project proposal
 ================
-Team name
+percent_percentage
 
 ``` r
 library(tidyverse)
@@ -8,7 +8,25 @@ library(broom)
 ```
 
 ## 1\. Introduction
+As we all know, nowadays people are more and more getting used to having a cup of coffee in the morning to start the day. Therefore, an increasing amount of coffee lovers are trying to research the quality of coffees so that higher quality of coffee can be provided to the world. In order to find out how the quality of coffee can be related to other factors such as farms or companies, we are employing the database from TidyTuesday with the source James LeDoux & Coffee Quality Database. We will reorganize the collected data and import it into GitHub and use Rstudio to program ggplot for analysis.
 
+We are assuming that various variables such as the altitude of origin, variety, processing method, and color of coffee samples might have the possibility to influence the quality of the coffee. In our project, our goal is to explore the correlation between processing method and total cup points. Additionally, we will try to find out what other kinds of variables will influence total cup points under the same circumstance of processing method.
+
+Therefore, we’ve selected the following variables from the data, including "total_cup_points", "species", "country_of_origin", "company", "altitude”, "harvest_year", "processing_method”, "variety", "color", "moisture".And in turn, explore whether there is a linear relationship between each single variable and total cup points and the strength of the relationship while controlling other variables unchanged.
 ## 2\. Data
-
+```{r}
+coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv')
+write_csv(x = coffee_ratings, paste(getwd(), "/data/<coffee_ratings.csv>", sep = ""))
+ratings <- coffee_ratings %>%
+  select("total_cup_points", "species" ,"country_of_origin" ,"company","altitude","harvest_year","processing_method","variety","color","moisture")
+glimpse(ratings)
+```
 ## 3\. Data analysis plan
+The variable on the y-axis will always be the total rating/points (0-100 scale), and the variable on x-axis is “processing method” in the first place. Then we will add some relative variables to group the data or  replace x-variable to any other variables which may determine the total rating/points of the coffee. The comparison group we are going to use are “species”, “country of origin”, and “company”. 
+
+In order to have a better comprehension between the total coffee rating/points and the various relative variables, we will display the data with a scatter plot so as to observe the correlation (r). If most of the scattered points in all the graphs are almost evenly distributed around a line (r is close to 1 or -1), we can conclude that the variable does contribute a lot on the coffee's Total rating/points, which is an important determinant. On the contrary, when the correlation is close to 0, we can conclude that the variable is almost irrelevant to the total rating/points of the coffee. 
+
+For group comparison, we will compare the data by displaying them in histogram. By comparing the height of each bin, we can readily tell which specific kind of variable is more popular in the ratings.
+
+
+
