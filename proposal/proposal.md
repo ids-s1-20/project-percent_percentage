@@ -16,7 +16,7 @@ Therefore, we’ve selected the following variables from the data, including "to
 ## 2\. Data
 ```{r}
 coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv')
-write_csv(x = coffee_ratings, paste(getwd(), "/data/<coffee_ratings.csv>", sep = ""))
+write_csv(x = coffee_ratings, paste(getwd(), "/data/coffee_ratings.csv", sep = ""))
 ratings <- coffee_ratings %>%
   select("total_cup_points", "species" ,"country_of_origin" ,"company","altitude","harvest_year","processing_method","variety","color","moisture")
 glimpse(ratings)
