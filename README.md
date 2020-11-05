@@ -7,7 +7,7 @@ percentage-%
 As we all know, nowadays people are more and more getting used to having
 a cup of coffee in the morning to start the day. Therefore, an
 increasing amount of coffee lovers are trying to research the quality of
-coffees so that higher quality of coffee can be provided to the world.
+coffee so that higher quality of coffee can be provided to the world.
 In order to find out how the quality of coffee can be related to other
 factors such as farms or companies, we are employing the database from
 TidyTuesday with the source James LeDoux & Coffee Quality Database.
