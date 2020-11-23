@@ -1,5 +1,5 @@
 ---
-title: "Presentation title"
+title: "Coffee Ratings"
 subtitle: "Presentation subtitle (if any)"
 author: "Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong) "
 institute: "University of Edinburgh"
@@ -20,6 +20,7 @@ library(tidyverse)
 library(tidymodels)
 library(palmerpenguins)
 library(knitr)
+library(xaringan)
 ```
 
 ```{r setup, include=FALSE}
