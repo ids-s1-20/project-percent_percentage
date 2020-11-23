@@ -1,6 +1,6 @@
 ---
 title: Coffee Ratings
-author: percentage-%
+author: "percentage-%"
 output: github_document
 ---
 
