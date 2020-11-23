@@ -1,6 +1,6 @@
 ---
 title: "Coffee Ratings"
-subtitle: "Presentation subtitle (if any)"
+subtitle: "linear relationship between each single variable and total cup points"
 author: "Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong) "
 institute: "University of Edinburgh"
 date: "`r Sys.Date()`"
