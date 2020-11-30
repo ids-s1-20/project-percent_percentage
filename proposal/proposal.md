@@ -218,16 +218,16 @@ ziling_coffee <- coffee_ratings %>%
 ziling_coffee %>%
   ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
   ylim(55,95) +
-  geom_point(size = 0.07)
+  geom_point(size = 0.08)
 ```
 
 ![](proposal_files/figure-gfm/z_altitude-1.png)<!-- -->
 
 ``` r
 ziling_coffee %>%
-  ggplot(ziling_coffee, mapping = aes(x = company, y = total_cup_points, color = processing_method)) +
-  geom_point(size = 0.3) +
-  theme(axis.text = element_text(angle = 80, hjust = 1))
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
 ```
 
-![](proposal_files/figure-gfm/z_company-1.png)<!-- -->
+![](proposal_files/figure-gfm/z_processing_method-1.png)<!-- -->
