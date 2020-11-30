@@ -257,3 +257,20 @@ coffee_a %>%
     ## Warning: Removed 1 rows containing missing values (geom_point).
 
 ![](proposal_files/figure-gfm/variety-1.png)<!-- -->
+
+``` r
+coffee_e <- coffee_ratings %>%
+  select("processing_method","total_cup_points","species","country_of_origin")
+
+spe <- coffee_e %>%
+  ggplot(aes(x = processing_method,
+             y = total_cup_points,
+             color = species)) +
+  geom_point()
+
+spe <- coffee_e %>%
+  ggplot(aes(x = processing_method,
+             y = total_cup_points,
+             color = country_of_origin)) +
+  geom_point()
+```
