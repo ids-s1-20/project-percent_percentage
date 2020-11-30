@@ -98,8 +98,6 @@ Askalidis, Y. (2019, March 26). The data is in: Ethiopia has the best coffee. Re
 LeDoux, J. (2018, June 17). Jldbc/coffee-quality-database. Retrieved October 23, 2020, from https://github.com/jldbc/coffee-quality-database
 
 
-
-
 ## References
 
 James LeDoux & Coffee Quality Database (https://github.com/jldbc/coffee-quality-database). 
