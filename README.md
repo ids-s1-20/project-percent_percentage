@@ -169,6 +169,17 @@ LeDoux, J. (2018, June 17). Jldbc/coffee-quality-database. Retrieved
 October 23, 2020, from
 <https://github.com/jldbc/coffee-quality-database>
 
+``` r
+ziling_coffee <- coffee_ratings %>%
+  select("total_cup_points","company","altitude","processing_method")
+
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = altitude, y = total_cup_points)) +
+  facet_wrap(~processing_method)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
 ## References
 
 James LeDoux & Coffee Quality Database

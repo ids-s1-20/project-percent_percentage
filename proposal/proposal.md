@@ -208,3 +208,16 @@ rating/points of the coffee.
 For group comparison, we will compare the data by displaying them in
 histogram. By comparing the height of each bin, we can readily tell
 which specific kind of variable is more popular in the ratings.
+
+``` r
+ziling_coffee <- coffee_ratings %>%
+  filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
+  select("total_cup_points","company","altitude_mean_meters","processing_method")
+
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.07)
+```
+
+![](proposal_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
