@@ -274,3 +274,17 @@ spe <- coffee_e %>%
              color = country_of_origin)) +
   geom_point()
 ```
+
+``` {r-color-bettywang}
+coffee_colors <- coffee_ratings %>%
+  select("total_cup_points","colors","processing_method")
+
+coffee_a %>%
+  filter(harvest_year <=2018&harvest_year >=2009) %>%
+  ggplot(coffee_a, mapping = aes(x = colors, y = total_cup_points, color = processing_method)) +
+  ylim(50,100) +
+  geom_point(size = 0.08)
+```
+
+``` {r-moisture-bettywang}
+```
