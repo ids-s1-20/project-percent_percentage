@@ -231,3 +231,37 @@ ziling_coffee %>%
 ```
 
 ![](proposal_files/figure-gfm/z_processing_method-1.png)<!-- -->
+
+``` r
+coffee_a <- coffee_ratings %>%
+  select("total_cup_points","harvest_year","variety","processing_method")
+
+coffee_a%>%
+  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+    ## Warning: Removed 1 rows containing missing values (geom_point).
+
+![](proposal_files/figure-gfm/harvest_year-1.png)<!-- -->
+
+``` r
+coffee_a%>%
+  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+    ## Warning: Removed 1 rows containing missing values (geom_point).
+
+![](proposal_files/figure-gfm/variety-1.png)<!-- -->
+
+``` r
+coffee_a %>%
+  ggplot(coffee_a, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+![](proposal_files/figure-gfm/coffee_a_processing_method-1.png)<!-- -->
