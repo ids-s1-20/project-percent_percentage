@@ -6,6 +6,7 @@ percent\_percentage
 library(tidyverse)
 library(broom)
 library(pillar)
+library(ggplot2)
 ```
 
     ## Warning: Missing column names filled in: 'X1' [1]
@@ -220,4 +221,13 @@ ziling_coffee %>%
   geom_point(size = 0.07)
 ```
 
-![](proposal_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](proposal_files/figure-gfm/z_altitude-1.png)<!-- -->
+
+``` r
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = company, y = total_cup_points, color = processing_method)) +
+  geom_point(size = 0.3) +
+  theme(axis.text = element_text(angle = 80, hjust = 1))
+```
+
+![](proposal_files/figure-gfm/z_company-1.png)<!-- -->

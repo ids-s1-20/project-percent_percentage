@@ -10,6 +10,7 @@ editor_options:
 library(tidyverse)
 library(broom)
 library(pillar)
+library(ggplot2)
 ```
 
 ```{r,echo=FALSE}
@@ -107,7 +108,7 @@ In order to have a better comprehension between the total coffee rating/points a
 
 For group comparison, we will compare the data by displaying them in histogram. By comparing the height of each bin, we can readily tell which specific kind of variable is more popular in the ratings.
 
-```{r}
+```{r z_altitude}
 ziling_coffee <- coffee_ratings %>%
   filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
   select("total_cup_points","company","altitude_mean_meters","processing_method")
@@ -115,6 +116,14 @@ ziling_coffee <- coffee_ratings %>%
 ziling_coffee %>%
   ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
   ylim(55,95) +
-  geom_point(size = 0.07)
+  geom_point(size = 0.08)
 ```
+
+```{r z_processing_method}
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3)
+```
+
+
 
