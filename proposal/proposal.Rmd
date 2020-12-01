@@ -144,21 +144,28 @@ coffee_a %>%
   geom_point(size = 0.08)
 ```
 
-```{r Emily-species-country_of_origin}
+```{r Emily-species}
 coffee_e <- coffee_ratings %>%
   select("processing_method","total_cup_points","species","country_of_origin")
 
-spe <- coffee_e %>%
-  ggplot(aes(x = processing_method,
+
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = processing_method,
              y = total_cup_points,
              color = species)) +
-  geom_point()
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
+```
 
-spe <- coffee_e %>%
-  ggplot(aes(x = processing_method,
+```{r Emily-country_of_origin}
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
              y = total_cup_points,
-             color = country_of_origin)) +
-  geom_point()
+             color = processing_method)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
 
