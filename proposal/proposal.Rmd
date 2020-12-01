@@ -169,27 +169,39 @@ coffee_e %>%
 ```
 
 
+```{r moisture1-BettyWang}
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+filter(total_cup_points > 65) %>%
+ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) + 
+ geom_point()
+
+```
+
+
+```{r moisture2-BettyWang}
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+ filter(total_cup_points > 65) %>%
+  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
+  geom_point() +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+
 ```{r color-BettyWang}
 coffee_color <- coffee_ratings %>%
   select("total_cup_points","color","processing_method")
 
 coffee_color %>%
+  filter(total_cup_points > 65) %>%
   ggplot(aes(total_cup_points, fill = color )) +
   geom_histogram(binwidth = 2) +
   facet_wrap(~ processing_method, scale = "free_y") + 
   theme(legend.position = "none")
-
 ```
-
-
-```{r moisture-BettyWang}
-coffee_moisture <- coffee_ratings %>%
-  select("total_cup_points","moisture","processing_method")
-coffee_moisture %>%
-   filter(total_cup_points > 65) %>%
-ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) + 
- geom_point() 
-```
-
-
-

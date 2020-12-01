@@ -262,29 +262,70 @@ coffee_a %>%
 coffee_e <- coffee_ratings %>%
   select("processing_method","total_cup_points","species","country_of_origin")
 
-spe <- coffee_e %>%
-  ggplot(aes(x = processing_method,
+
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = processing_method,
              y = total_cup_points,
              color = species)) +
-  geom_point()
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
+```
 
-spe <- coffee_e %>%
-  ggplot(aes(x = processing_method,
+    ## Warning: Removed 1 rows containing missing values (geom_point).
+
+![](proposal_files/figure-gfm/Emily-species-1.png)<!-- -->
+
+``` r
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
              y = total_cup_points,
-             color = country_of_origin)) +
-  geom_point()
+             color = processing_method)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 
-``` {r-color-bettywang}
-coffee_colors <- coffee_ratings %>%
-  select("total_cup_points","colors","processing_method")
+    ## Warning: Removed 1 rows containing missing values (geom_point).
 
-coffee_a %>%
-  filter(harvest_year <=2018&harvest_year >=2009) %>%
-  ggplot(coffee_a, mapping = aes(x = colors, y = total_cup_points, color = processing_method)) +
-  ylim(50,100) +
-  geom_point(size = 0.08)
+![](proposal_files/figure-gfm/Emily-country_of_origin-1.png)<!-- -->
+
+``` r
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+filter(total_cup_points > 65) %>%
+ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) + 
+ geom_point()
 ```
 
-``` {r-moisture-bettywang}
+![](proposal_files/figure-gfm/moisture1-BettyWang-1.png)<!-- -->
+
+``` r
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+ filter(total_cup_points > 65) %>%
+  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
+  geom_point() +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
 ```
+
+![](proposal_files/figure-gfm/moisture2-BettyWang-1.png)<!-- -->
+
+``` r
+coffee_color <- coffee_ratings %>%
+  select("total_cup_points","color","processing_method")
+
+coffee_color %>%
+  filter(total_cup_points > 65) %>%
+  ggplot(aes(total_cup_points, fill = color )) +
+  geom_histogram(binwidth = 2) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+![](proposal_files/figure-gfm/color-BettyWang-1.png)<!-- -->
