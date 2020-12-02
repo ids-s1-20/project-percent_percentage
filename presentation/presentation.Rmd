@@ -134,111 +134,6 @@ ggplot(data = iris_modified, mapping = aes(x = Sepal.Width, y = Sepal.Length, co
 
 ---
 
-# Code
-
-```{r Emily-country_of_origin}
-# country of origin
-coffee_e %>%
-  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
-             y = total_cup_points,
-             color = processing_method)) +
-  geom_point() +
-  ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
-
----
-
-# Code
-
-```{r ziling—altitude}
-# altitude
-ziling_coffee <- coffee_ratings %>%
-  filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
-  select("total_cup_points","company","altitude_mean_meters","processing_method")
-
-ziling_coffee %>%
-  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
----
-
-# Code
-
-```{r ziling_processing_method}
-# processing method
-ziling_coffee %>%
-  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
-  geom_point(alpha = 0.3) +
-  theme(axis.text.x = element_text(angle = 10, hjust = 1))
-```
-
----
-
-# Code
-
-```{r Trixy—harvest_year}
-# harvest year
-coffee_a <- coffee_ratings %>%
-  select("total_cup_points","harvest_year","variety","processing_method")
-
-coffee_a %>%
-  filter(harvest_year <=2018&harvest_year >=2009) %>%
-  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
-  ylim(50,100) +
-  geom_point(size = 0.08)
-```
-
----
-
-# Code
-
-```{r Trixy-variety}
-# variety
-coffee_a %>%
-  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
----
-
-# Code
-
-```{r Betty-color}
-# color
-coffee_color <- coffee_ratings %>%
-  select("total_cup_points","color","processing_method")
-
-coffee_color %>%
-  filter(total_cup_points > 65) %>%
-  ggplot(aes(total_cup_points, fill = color )) +
-  geom_histogram(binwidth = 2) +
-  facet_wrap(~ processing_method, scale = "free_y") + 
-  theme(legend.position = "none")
-```
-
----
-
-# Code
-
-```{r Betty-moisture}
-# moisture
-coffee_moisture <- coffee_ratings %>%
-  select("total_cup_points","moisture","processing_method")
-
-coffee_moisture %>%
- filter(total_cup_points > 65) %>%
-  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
-  geom_point() +
-  facet_wrap(~ processing_method, scale = "free_y") + 
-  theme(legend.position = "none")
-```
-
----
-
 ## Plot and text
 
 .pull-left[
@@ -311,3 +206,123 @@ of your presentation.
 
 - But some of you might want to play around with slide styling. The 
 `xaringanthemer` provides some solutions for this that: https://pkg.garrickadenbuie.com/xaringanthemer/. 
+
+---
+
+# Code
+
+```{r Emily-country_of_origin}
+# country of origin
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
+             y = total_cup_points,
+             color = processing_method)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+---
+
+# Code
+
+```{r ziling—altitude}
+# altitude
+ziling_coffee <- coffee_ratings %>%
+  filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
+  select("total_cup_points","company","altitude_mean_meters","processing_method")
+
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+---
+
+# Code
+
+```{r ziling_processing_method}
+# processing method
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+---
+
+# Code
+
+```{r Trixy—harvest_year}
+# harvest year
+coffee_a <- coffee_ratings %>%
+  select("total_cup_points","harvest_year","variety","processing_method")
+
+coffee_a %>%
+  filter(harvest_year <=2018&harvest_year >=2009) %>%
+  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
+  ylim(50,100) +
+  geom_point(size = 0.08)
+```
+
+---
+
+# Code
+
+```{r Trixy-variety}
+# variety
+coffee_a %>%
+  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+
+---
+
+# Relationship between virable moisture and total cup points
+
+```{r warning=FALSE, out.width="80%", fig.width=5.5, echo=FALSE}
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+filter(total_cup_points > 65) %>%
+ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) + 
+ geom_point()
+```
+
+---
+
+# Relationship between virable moisture and total cup points
+
+```{r warning=FALSE, out.width="80%", fig.width=6, echo=FALSE}
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+ filter(total_cup_points > 65) %>%
+  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
+  geom_point(size = 0.5) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+---
+
+# Relationship between virable color and total cup points
+
+```{r warning=FALSE, out.width="80%", fig.width=6, echo=FALSE}
+coffee_color <- coffee_ratings %>%
+  select("total_cup_points","color","processing_method")
+
+coffee_color %>%
+  filter(total_cup_points > 65) %>%
+  ggplot(aes(total_cup_points, fill = color )) +
+  geom_histogram(binwidth = 2) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+---

@@ -119,144 +119,6 @@ coffee_e %&gt;%
 
 ---
 
-# Code
-
-
-```r
-# country of origin
-coffee_e %&gt;%
-  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
-             y = total_cup_points,
-             color = processing_method)) +
-  geom_point() +
-  ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
-
-```
-## Warning: Removed 1 rows containing missing values (geom_point).
-```
-
-&lt;img src="presentation_files/figure-html/Emily-country_of_origin-1.png" width="80%" /&gt;
-
----
-
-# Code
-
-
-```r
-# altitude
-ziling_coffee &lt;- coffee_ratings %&gt;%
-  filter(altitude_mean_meters &lt;= 4287&amp;!is.na(processing_method)) %&gt;%
-  select("total_cup_points","company","altitude_mean_meters","processing_method")
-
-ziling_coffee %&gt;%
-  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
-&lt;img src="presentation_files/figure-html/ziling—altitude-1.png" width="80%" /&gt;
-
----
-
-# Code
-
-
-```r
-# processing method
-ziling_coffee %&gt;%
-  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
-  geom_point(alpha = 0.3) +
-  theme(axis.text.x = element_text(angle = 10, hjust = 1))
-```
-
-&lt;img src="presentation_files/figure-html/ziling_processing_method-1.png" width="80%" /&gt;
-
----
-
-# Code
-
-
-```r
-# harvest year
-coffee_a &lt;- coffee_ratings %&gt;%
-  select("total_cup_points","harvest_year","variety","processing_method")
-
-coffee_a %&gt;%
-  filter(harvest_year &lt;=2018&amp;harvest_year &gt;=2009) %&gt;%
-  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
-  ylim(50,100) +
-  geom_point(size = 0.08)
-```
-
-```
-## Warning: Removed 1 rows containing missing values (geom_point).
-```
-
-&lt;img src="presentation_files/figure-html/Trixy—harvest_year-1.png" width="80%" /&gt;
-
----
-
-# Code
-
-
-```r
-# variety
-coffee_a %&gt;%
-  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
-```
-## Warning: Removed 1 rows containing missing values (geom_point).
-```
-
-&lt;img src="presentation_files/figure-html/Trixy-variety-1.png" width="80%" /&gt;
-
----
-
-# Code
-
-
-```r
-# color
-coffee_color &lt;- coffee_ratings %&gt;%
-  select("total_cup_points","color","processing_method")
-
-coffee_color %&gt;%
-  filter(total_cup_points &gt; 65) %&gt;%
-  ggplot(aes(total_cup_points, fill = color )) +
-  geom_histogram(binwidth = 2) +
-  facet_wrap(~ processing_method, scale = "free_y") + 
-  theme(legend.position = "none")
-```
-
-&lt;img src="presentation_files/figure-html/Betty-color-1.png" width="80%" /&gt;
-
----
-
-# Code
-
-
-```r
-# moisture
-coffee_moisture &lt;- coffee_ratings %&gt;%
-  select("total_cup_points","moisture","processing_method")
-
-coffee_moisture %&gt;%
- filter(total_cup_points &gt; 65) %&gt;%
-  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
-  geom_point() +
-  facet_wrap(~ processing_method, scale = "free_y") + 
-  theme(legend.position = "none")
-```
-
-&lt;img src="presentation_files/figure-html/Betty-moisture-1.png" width="80%" /&gt;
-
----
-
 ## Plot and text
 
 .pull-left[
@@ -375,7 +237,126 @@ I expect majority of you will do. You will differentiate yourself with the conte
 of your presentation.
 
 - But some of you might want to play around with slide styling. The 
-`xaringanthemer` provides some solutions for this that: https://pkg.garrickadenbuie.com/xaringanthemer/.
+`xaringanthemer` provides some solutions for this that: https://pkg.garrickadenbuie.com/xaringanthemer/. 
+
+---
+
+# Code
+
+
+```r
+# country of origin
+coffee_e %&gt;%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
+             y = total_cup_points,
+             color = processing_method)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Emily-country_of_origin-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# altitude
+ziling_coffee &lt;- coffee_ratings %&gt;%
+  filter(altitude_mean_meters &lt;= 4287&amp;!is.na(processing_method)) %&gt;%
+  select("total_cup_points","company","altitude_mean_meters","processing_method")
+
+ziling_coffee %&gt;%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+&lt;img src="presentation_files/figure-html/ziling—altitude-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# processing method
+ziling_coffee %&gt;%
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+&lt;img src="presentation_files/figure-html/ziling_processing_method-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# harvest year
+coffee_a &lt;- coffee_ratings %&gt;%
+  select("total_cup_points","harvest_year","variety","processing_method")
+
+coffee_a %&gt;%
+  filter(harvest_year &lt;=2018&amp;harvest_year &gt;=2009) %&gt;%
+  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
+  ylim(50,100) +
+  geom_point(size = 0.08)
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Trixy—harvest_year-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# variety
+coffee_a %&gt;%
+  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Trixy-variety-1.png" width="80%" /&gt;
+
+
+---
+
+# Relationship between virable moisture and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="80%" /&gt;
+
+---
+
+# Relationship between virable moisture and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="80%" /&gt;
+
+---
+
+# Relationship between virable color and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
+
+---
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
