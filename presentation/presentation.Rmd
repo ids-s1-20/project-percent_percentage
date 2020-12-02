@@ -40,7 +40,7 @@ coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatasci
 
 class: center, middle
 
-## A statement of the overall goal / research question
+## Exploring the correlation between processing method and total cup points.
 
 ---
 
@@ -98,11 +98,18 @@ or text in two columns $^*$
 
 # Code
 
-```{r boring-regression}
-# a boring regression
-model <- lm(dist ~ speed, data = cars)
-tidy(model)
-glance(model)
+```{r Emily-species}
+# species
+coffee_e <- coffee_ratings %>%
+  select("processing_method","total_cup_points","species","country_of_origin")
+
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = processing_method,
+             y = total_cup_points,
+             color = species)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 
 ---
@@ -123,6 +130,111 @@ iris_modified <- iris %>%
 ggplot(data = iris_modified, mapping = aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
   geom_point() + 
   theme_minimal() # theme options: https://ggplot2.tidyverse.org/reference/ggtheme.html
+```
+
+---
+
+# Code
+
+```{r Emily-country_of_origin}
+# country of origin
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
+             y = total_cup_points,
+             color = processing_method)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+---
+
+# Code
+
+```{r ziling—altitude}
+# altitude
+ziling_coffee <- coffee_ratings %>%
+  filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
+  select("total_cup_points","company","altitude_mean_meters","processing_method")
+
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+---
+
+# Code
+
+```{r ziling_processing_method}
+# processing method
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+---
+
+# Code
+
+```{r Trixy—harvest_year}
+# harvest year
+coffee_a <- coffee_ratings %>%
+  select("total_cup_points","harvest_year","variety","processing_method")
+
+coffee_a %>%
+  filter(harvest_year <=2018&harvest_year >=2009) %>%
+  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
+  ylim(50,100) +
+  geom_point(size = 0.08)
+```
+
+---
+
+# Code
+
+```{r Trixy-variety}
+# variety
+coffee_a %>%
+  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+---
+
+# Code
+
+```{r Betty-color}
+# color
+coffee_color <- coffee_ratings %>%
+  select("total_cup_points","color","processing_method")
+
+coffee_color %>%
+  filter(total_cup_points > 65) %>%
+  ggplot(aes(total_cup_points, fill = color )) +
+  geom_histogram(binwidth = 2) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+---
+
+# Code
+
+```{r Betty-moisture}
+# moisture
+coffee_moisture <- coffee_ratings %>%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %>%
+ filter(total_cup_points > 65) %>%
+  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
+  geom_point() +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
 ```
 
 ---

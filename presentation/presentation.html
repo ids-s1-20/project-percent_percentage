@@ -4,7 +4,7 @@
     <title>Coffee Ratings</title>
     <meta charset="utf-8" />
     <meta name="author" content="Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong)" />
-    <meta name="date" content="2020-11-23" />
+    <meta name="date" content="2020-12-02" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 ## linear relationship between each single variable and total cup points
 ### Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong)
 ### University of Edinburgh
-### 2020-11-23
+### 2020-12-02
 
 ---
 
@@ -30,7 +30,7 @@ class: center, middle, inverse, title-slide
 
 class: center, middle
 
-## A statement of the overall goal / research question
+## Exploring the correlation between processing method and total cup points.
 
 ---
 
@@ -90,30 +90,24 @@ or text in two columns `\(^*\)`
 
 
 ```r
-# a boring regression
-model &lt;- lm(dist ~ speed, data = cars)
-tidy(model)
+# species
+coffee_e &lt;- coffee_ratings %&gt;%
+  select("processing_method","total_cup_points","species","country_of_origin")
+
+coffee_e %&gt;%
+  ggplot(coffee_e, mapping = aes(x = processing_method,
+             y = total_cup_points,
+             color = species)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ```
 
 ```
-## # A tibble: 2 x 5
-##   term        estimate std.error statistic  p.value
-##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
-## 2 speed           3.93     0.416      9.46 1.49e-12
+## Warning: Removed 1 rows containing missing values (geom_point).
 ```
 
-```r
-glance(model)
-```
-
-```
-## # A tibble: 1 x 12
-##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
-##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     0.651         0.644  15.4      89.6 1.49e-12     1  -207.  419.  425.
-## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;
-```
+&lt;img src="presentation_files/figure-html/Emily-species-1.png" width="80%" /&gt;
 
 ---
 
@@ -122,6 +116,144 @@ glance(model)
 
 
 &lt;img src="presentation_files/figure-html/plot-iris-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# country of origin
+coffee_e %&gt;%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
+             y = total_cup_points,
+             color = processing_method)) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Emily-country_of_origin-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# altitude
+ziling_coffee &lt;- coffee_ratings %&gt;%
+  filter(altitude_mean_meters &lt;= 4287&amp;!is.na(processing_method)) %&gt;%
+  select("total_cup_points","company","altitude_mean_meters","processing_method")
+
+ziling_coffee %&gt;%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+&lt;img src="presentation_files/figure-html/ziling—altitude-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# processing method
+ziling_coffee %&gt;%
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.3) +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+&lt;img src="presentation_files/figure-html/ziling_processing_method-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# harvest year
+coffee_a &lt;- coffee_ratings %&gt;%
+  select("total_cup_points","harvest_year","variety","processing_method")
+
+coffee_a %&gt;%
+  filter(harvest_year &lt;=2018&amp;harvest_year &gt;=2009) %&gt;%
+  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
+  ylim(50,100) +
+  geom_point(size = 0.08)
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Trixy—harvest_year-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# variety
+coffee_a %&gt;%
+  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08)
+```
+
+```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Trixy-variety-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# color
+coffee_color &lt;- coffee_ratings %&gt;%
+  select("total_cup_points","color","processing_method")
+
+coffee_color %&gt;%
+  filter(total_cup_points &gt; 65) %&gt;%
+  ggplot(aes(total_cup_points, fill = color )) +
+  geom_histogram(binwidth = 2) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+&lt;img src="presentation_files/figure-html/Betty-color-1.png" width="80%" /&gt;
+
+---
+
+# Code
+
+
+```r
+# moisture
+coffee_moisture &lt;- coffee_ratings %&gt;%
+  select("total_cup_points","moisture","processing_method")
+
+coffee_moisture %&gt;%
+ filter(total_cup_points &gt; 65) %&gt;%
+  ggplot(aes(x = moisture, y = total_cup_points, color = processing_method)) +
+  geom_point() +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+&lt;img src="presentation_files/figure-html/Betty-moisture-1.png" width="80%" /&gt;
 
 ---
 
