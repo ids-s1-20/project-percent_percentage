@@ -1,6 +1,6 @@
 ---
 title: "Coffee Ratings"
-subtitle: "linear relationship between each single variable and total cup points"
+subtitle: "relationship between each single variable and total cup points"
 author: "Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong)"
 institute: "University of Edinburgh"
 date: "`r Sys.Date()`"
@@ -46,8 +46,8 @@ class: center, middle
 
 class: inverse, middle, center
 
-# Processing Method vs. Total Cup Points 
-# by Processing method & Altitude  
+# How Processing Method & Altitude Influence Total Cup Points 
+# Under Same Processing Method  
 # Ziling Luo
 
 ---
@@ -84,8 +84,8 @@ ziling_coffee %>%
 
 class: inverse, middle, center
 
-# Processing Method vs. Total Cup Points 
-# by Species & Country of Origin 
+# How Species & Country of Origin Influence Total Cup Points 
+# Under Same Processing Method 
 # Qi(Emily) Qiu
 
 ---
@@ -217,8 +217,8 @@ coffee_e %>%
 
 class: inverse, middle, center
 
-# Processing Method vs. Total Cup Points 
-# by Harvest Year & Variety 
+# How Harvest Year & Variety Influence Total Cup Points 
+# Under Same Processing Method 
 # Shizhao(Trixy) Xiong
 
 ---
@@ -340,12 +340,12 @@ coffee_color %>%
 ```
 
 ---
-class: inverse, middle, center
+class: inverse
 
 # Conclusion
 
 ```{r echo = FALSE, out.width = "90%", fig.align = "center"}
-include_graphics("http://r.photo.store.qq.com/psc?/V10aRWDb4N6cVV/45NBuzDIW489QBoVep5mcfgtesle62cp83dQXeCSTVUm373Xt4kD81HMNgufsG8Pfy1Bp2dlZrS4l26Uxxq7F4tX4oxTLEJXWSczWTrlsHc!/r=")
+include_graphics("http://m.qpic.cn/psc?/V10aRWDb4N6cVV/45NBuzDIW489QBoVep5mcf9iFDAWTU.ikJvUfQWIWe1lfKyPVZ5ydwbXZSo2YJKnlm15EkCmhFdRvDzHw9A9XAaI4DSmFGeFvglQUxhgAUs!/b&bo=4ANEAeADRAEBGT4!&rf=viewer_4&t=5")
 ```
 
 ---
