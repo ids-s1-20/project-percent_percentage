@@ -4,7 +4,7 @@
     <title>Coffee Ratings</title>
     <meta charset="utf-8" />
     <meta name="author" content="Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong)" />
-    <meta name="date" content="2020-12-02" />
+    <meta name="date" content="2020-12-03" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
   </head>
@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 ## linear relationship between each single variable and total cup points
 ### Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong)
 ### University of Edinburgh
-### 2020-12-02
+### 2020-12-03
 
 ---
 
@@ -54,17 +54,6 @@ class: inverse, middle, center
 
 ---
 
-# xaringan
-
-- The presentation is created using the `xaringan` package
-
-- Use `---` to separate slides and `--` for incremental builds
-
---
-
-- Like this
-
----
 
 # Layouts
 
@@ -81,33 +70,12 @@ or text in two columns `\(^*\)`
 ]
 
 .footnote[
-[*] And add footnotes
+percentage(%)
 ]
 
 ---
 
-# Code
 
-
-```r
-# species
-coffee_e &lt;- coffee_ratings %&gt;%
-  select("processing_method","total_cup_points","species","country_of_origin")
-
-coffee_e %&gt;%
-  ggplot(coffee_e, mapping = aes(x = processing_method,
-             y = total_cup_points,
-             color = species)) +
-  geom_point() +
-  ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 30, hjust = 1))
-```
-
-```
-## Warning: Removed 1 rows containing missing values (geom_point).
-```
-
-&lt;img src="presentation_files/figure-html/Emily-species-1.png" width="80%" /&gt;
 
 ---
 
@@ -241,19 +209,17 @@ of your presentation.
 
 ---
 
-# Code
+# Species &amp; Country of origin
 
 
-```r
-# country of origin
-coffee_e %&gt;%
-  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
-             y = total_cup_points,
-             color = processing_method)) +
-  geom_point() +
-  ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
+## Warning: Removed 1 rows containing missing values (geom_point).
+```
+
+&lt;img src="presentation_files/figure-html/Emily-species-1.png" width="80%" /&gt;
+---
+# Species &amp; Country of origin
+
 
 ```
 ## Warning: Removed 1 rows containing missing values (geom_point).

@@ -64,17 +64,6 @@ class: inverse, middle, center
 
 ---
 
-# xaringan
-
-- The presentation is created using the `xaringan` package
-
-- Use `---` to separate slides and `--` for incremental builds
-
---
-
-- Like this
-
----
 
 # Layouts
 
@@ -91,26 +80,8 @@ or text in two columns $^*$
 ]
 
 .footnote[
-[*] And add footnotes
+percentage(%)
 ]
-
----
-
-# Code
-
-```{r Emily-species}
-# species
-coffee_e <- coffee_ratings %>%
-  select("processing_method","total_cup_points","species","country_of_origin")
-
-coffee_e %>%
-  ggplot(coffee_e, mapping = aes(x = processing_method,
-             y = total_cup_points,
-             color = species)) +
-  geom_point() +
-  ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 30, hjust = 1))
-```
 
 ---
 
@@ -209,11 +180,58 @@ of your presentation.
 
 ---
 
-# Code
+# Species 
 
-```{r Emily-country_of_origin}
-# country of origin
+```{r Emily-species, echo = FALSE}
+# species
+coffee_e <- coffee_ratings %>%
+  select("processing_method","total_cup_points","species","country_of_origin")
+
 coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = processing_method,
+             y = total_cup_points,
+             color = species)) +
+  labs(title = "Processing method vs. Total cup points",
+       subtitle = "By species") +
+  geom_point() +
+  ylim(55,95) +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
+```
+.footnote[
+Qi (Emily) Qiu
+]
+---
+# Species 
+
+```{r Emily-species, echo = FALSE}
+# species
+coffee_e <- coffee_ratings %>%
+  select("processing_method","total_cup_points","species","country_of_origin")
+
+coffee_e %>%
+  ggplot(coffee_e, mapping = aes(x = processing_method,
+             y = total_cup_points,
+             color = species)) +
+  labs(title = "Processing method vs. Total cup points",
+       subtitle = "By species") +
+  facet_wrap(~ species) +
+  geom_point() +
+  ylim(55,95) +
+  theme_minimal() +
+  guides(colour = FALSE) +
+  theme(axis.text.x = element_text(angle = 30, hjust = 1))
+```
+.footnote[
+Qi (Emily) Qiu
+]
+---
+# Country of origin
+
+```{r Emily-country_of_origin, echo = FALSE}
+# country of origin
+coffee_e %>% 
   ggplot(coffee_e, mapping = aes(x = country_of_origin ,
              y = total_cup_points,
              color = processing_method)) +
@@ -221,7 +239,21 @@ coffee_e %>%
   ylim(55,95) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
 ```
-
+.footnote[
+Qi (Emily) Qiu
+]
+---
+```{r Emily-country_of_origin, echo = FALSE}
+# country of origin
+coffee_e %>% 
+  filter(processing_method == "Washed/Wet")%>%
+  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
+             y = total_cup_points,
+             )) +
+  geom_point() +
+  ylim(55,95) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+```
 ---
 
 # Code
