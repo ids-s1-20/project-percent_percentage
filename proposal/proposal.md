@@ -211,6 +211,11 @@ histogram. By comparing the height of each bin, we can readily tell
 which specific kind of variable is more popular in the ratings.
 
 ``` r
+s_coffee <- coffee_ratings %>%
+  select("total_cup_points","processing_method","species","country_of_origin","harvest_year","variety","color","moisture","altitude_mean_meters")
+```
+
+``` r
 ziling_coffee <- coffee_ratings %>%
   filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
   select("total_cup_points","company","altitude_mean_meters","processing_method")

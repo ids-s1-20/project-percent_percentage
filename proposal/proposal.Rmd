@@ -107,6 +107,10 @@ The variable on the y-axis will always be the total rating/points (0-100 scale),
 In order to have a better comprehension between the total coffee rating/points and the various relative variables, we will display the data with a scatter plot so as to observe the correlation (r). If most of the scattered points in all the graphs are almost evenly distributed around a line (r is close to 1 or -1), we can conclude that the variable does contribute a lot on the coffee's Total rating/points, which is an important determinant. On the contrary, when the correlation is close to 0, we can conclude that the variable is almost irrelevant to the total rating/points of the coffee. 
 
 For group comparison, we will compare the data by displaying them in histogram. By comparing the height of each bin, we can readily tell which specific kind of variable is more popular in the ratings.
+```{r}
+s_coffee <- coffee_ratings %>%
+  select("total_cup_points","processing_method","species","country_of_origin","harvest_year","variety","color","moisture","altitude_mean_meters")
+```
 
 ```{r z_altitude}
 ziling_coffee <- coffee_ratings %>%
