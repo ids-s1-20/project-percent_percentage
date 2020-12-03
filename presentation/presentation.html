@@ -27,10 +27,10 @@ class: center, middle, inverse, title-slide
 
 
 
-
 class: center, middle
 
-## Exploring the correlation between processing method and total cup points.
+# Research Question: 
+## Exploring the correlation between processing method and total cup points, and what other variables we choose will influence the total cup points under the same circumstance of processing method.
 
 ---
 
@@ -183,104 +183,129 @@ of your presentation.
 class: inverse, middle, center
 
 # Processing Method vs. Total Cup Points 
-# By Species &amp; Country of Origin 
+# by Processing method &amp; Altitude  
+# Ziling Luo
+
+---
+
+# Relationship between variable processing method and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Relationship between variable altitude and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle, center
+
+# Processing Method vs. Total Cup Points 
+# by Species &amp; Country of Origin 
 # Qi(Emily) Qiu
 
 ---
+
 # Species
 
 &lt;img src="presentation_files/figure-html/Emily-species-1-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
 
 # Species
 
 &lt;img src="presentation_files/figure-html/Emily-species-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
-
----
 #Species
 
 &lt;img src="presentation_files/figure-html/Emily-species-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
 ---
+
 # Country of origin
 
 &lt;img src="presentation_files/figure-html/Emily-country_of_origin-1-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
+
 # Country of origin
+
 &lt;img src="presentation_files/figure-html/Emily-country_of_origin-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
 ---
+
 # Country of origin
+
 &lt;img src="presentation_files/figure-html/Emily-country_of_origin-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
----
-
-# Relationship between virable processing method and total cup points
-&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
----
-# Relationship between virable ailtitude and total cup points
-&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
-
----
-# Code
-
-
-```r
-# harvest year
-coffee_a &lt;- coffee_ratings %&gt;%
-  select("total_cup_points","harvest_year","variety","processing_method")
-
-coffee_a %&gt;%
-  filter(harvest_year &lt;=2018&amp;harvest_year &gt;=2009) %&gt;%
-  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
-  ylim(50,100) +
-  geom_point(size = 0.08)
-```
-
-```
-## Warning: Removed 1 rows containing missing values (geom_point).
-```
-
-&lt;img src="presentation_files/figure-html/Trixy—harvest_year-1.png" width="80%" /&gt;
 
 ---
 
-# Code
+class: inverse, middle, center
 
-
-```r
-# variety
-coffee_a %&gt;%
-  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
-```
-## Warning: Removed 1 rows containing missing values (geom_point).
-```
-
-&lt;img src="presentation_files/figure-html/Trixy-variety-1.png" width="80%" /&gt;
-
+# Processing Method vs. Total Cup Points 
+# by Harvest Year &amp; Variety 
+# Shizhao(Trixy) Xiong
 
 ---
 
-# Relationship between virable moisture and total cup points
+# Relationship between variable harvest year and total cup points
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
-
----
-
-# Relationship between virable moisture and total cup points
-
-&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Relationship between virable color and total cup points
-
-&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
+
+# Relationship between variable variety and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="80%" style="display: block; margin: auto;" /&gt;
+
+---
+
+class: inverse, middle, center
+
+# Processing Method vs. Total Cup Points 
+# by Moisture &amp; Color 
+# Betty Wang
+
+---
+
+# Relationship between variable moisture and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="80%" /&gt;
+
+---
+
+# Relationship between variable moisture and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="80%" /&gt;
+
+---
+
+# Relationship between variable color and total cup points
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-10-1.png" width="80%" /&gt;
+
+---
+
+class: center, middle
+
+# Conclusion: 
+## 
+
+---
+
+class: inverse, middle, center
+
+# Thanks for Watching
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

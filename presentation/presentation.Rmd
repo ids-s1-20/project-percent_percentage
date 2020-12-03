@@ -1,7 +1,7 @@
 ---
 title: "Coffee Ratings"
 subtitle: "linear relationship between each single variable and total cup points"
-author: "Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong) "
+author: "Percentage(Ziling Luo, Qi Qiu, Betty Wang, Shizhao Xiong)"
 institute: "University of Edinburgh"
 date: "`r Sys.Date()`"
 output:
@@ -37,10 +37,10 @@ coffee_ratings <- tuesdata$coffee_ratings
 coffee_ratings <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-07-07/coffee_ratings.csv')
 ```
 
-
 class: center, middle
 
-## Exploring the correlation between processing method and total cup points.
+# Research Question: 
+## Exploring the correlation between processing method and total cup points, and what other variables we choose will influence the total cup points under the same circumstance of processing method.
 
 ---
 
@@ -158,10 +158,49 @@ of your presentation.
 class: inverse, middle, center
 
 # Processing Method vs. Total Cup Points 
-# By Species & Country of Origin 
+# by Processing method & Altitude  
+# Ziling Luo
+
+---
+
+# Relationship between variable processing method and total cup points
+
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
+# processing method
+ziling_coffee <- coffee_ratings %>%
+  filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
+  select("total_cup_points","company","altitude_mean_meters","processing_method")
+
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
+  geom_point(alpha = 0.2) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 10, hjust = 1))
+```
+
+---
+
+# Relationship between variable altitude and total cup points
+
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
+# altitude
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08) +
+  theme_minimal() 
+```
+
+---
+
+class: inverse, middle, center
+
+# Processing Method vs. Total Cup Points 
+# by Species & Country of Origin 
 # Qi(Emily) Qiu
 
 ---
+
 # Species
 
 ```{r Emily-species-1, echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5, fig.align = "center",out.width="80%"}
@@ -179,6 +218,8 @@ coffee_e %>%
   theme(legend.position = "bottom") +
   theme(axis.text.x = element_text(angle = 30, hjust = 1))
 ```
+
+---
 
 # Species
 
@@ -200,8 +241,6 @@ coffee_e %>%
 
 ```
 
-
----
 #Species
 
 ```{r Emily-species-3, echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
@@ -222,7 +261,9 @@ coffee_e %>%
   theme(axis.text.x = element_text(angle = 30, hjust = 1))
 
 ```
+
 ---
+
 # Country of origin
 
 ```{r Emily-country_of_origin-1, echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
@@ -238,7 +279,9 @@ coffee_e %>%
 ```
 
 ---
+
 # Country of origin
+
 ```{r Emily-country_of_origin-2, echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
 # country of origin
 coffee_e %>% 
@@ -257,8 +300,11 @@ coffee_e %>%
   theme_minimal() +
   theme(axis.text.x = element_text(size = 7, angle = 70, hjust = 1))
 ```
+
 ---
+
 # Country of origin
+
 ```{r Emily-country_of_origin-3, echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
 # country of origin
 coffee_e %>% 
@@ -277,37 +323,20 @@ coffee_e %>%
   theme_minimal() +
   theme(axis.text.x = element_text(size = 7, angle = 70, hjust = 1))
 ```
+
 ---
 
-# Relationship between virable processing method and total cup points
+class: inverse, middle, center
+
+# Processing Method vs. Total Cup Points 
+# by Harvest Year & Variety 
+# Shizhao(Trixy) Xiong
+
+---
+
+# Relationship between variable harvest year and total cup points
+
 ```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
-# processing method
-ziling_coffee <- coffee_ratings %>%
-  filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
-  select("total_cup_points","company","altitude_mean_meters","processing_method")
-
-ziling_coffee %>%
-  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
-  geom_point(alpha = 0.2) +
-  theme_minimal() +
-  theme(axis.text.x = element_text(angle = 10, hjust = 1))
-```
-
----
-# Relationship between virable ailtitude and total cup points
-```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
-# altitude
-ziling_coffee %>%
-  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08) +
-  theme_minimal() 
-```
-
----
-# Code
-
-```{r Trixy—harvest_year}
 # harvest year
 coffee_a <- coffee_ratings %>%
   select("total_cup_points","harvest_year","variety","processing_method")
@@ -316,25 +345,68 @@ coffee_a %>%
   filter(harvest_year <=2018&harvest_year >=2009) %>%
   ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
   ylim(50,100) +
-  geom_point(size = 0.08)
+  geom_point(size = 0.08) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 5, angle = 40, hjust = 1))
 ```
 
 ---
 
-# Code
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
+# harvest year
+coffee_a <- coffee_ratings %>%
+  select("total_cup_points","harvest_year","variety","processing_method")
 
-```{r Trixy-variety}
+coffee_a %>%
+  filter(harvest_year <=2018&harvest_year >=2009) %>%
+  ggplot(coffee_a, mapping = aes(x = harvest_year, y = total_cup_points, color = processing_method)) +
+  ylim(50,100) +
+  geom_point(size = 0.5) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 5, angle = 80, hjust = 1)) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+---
+
+# Relationship between variable variety and total cup points
+
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
 # variety
 coffee_a %>%
   ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
   ylim(55,95) +
-  geom_point(size = 0.08)
+  geom_point(size = 0.08) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 5, angle = 80, hjust = 1))
 ```
-
 
 ---
 
-# Relationship between virable moisture and total cup points
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
+# variety
+coffee_a %>%
+  ggplot(coffee_a, mapping = aes(x = variety, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(size = 5, angle = 80, hjust = 1)) +
+  facet_wrap(~ processing_method, scale = "free_y") + 
+  theme(legend.position = "none")
+```
+
+---
+
+class: inverse, middle, center
+
+# Processing Method vs. Total Cup Points 
+# by Moisture & Color 
+# Betty Wang
+
+---
+
+# Relationship between variable moisture and total cup points
 
 ```{r warning=FALSE, out.width="80%", fig.width=5.5, echo=FALSE}
 coffee_moisture <- coffee_ratings %>%
@@ -342,13 +414,13 @@ coffee_moisture <- coffee_ratings %>%
 
 coffee_moisture %>%
 filter(total_cup_points > 65) %>%
-ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) + 
+ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) +
  geom_point()
 ```
 
 ---
 
-# Relationship between virable moisture and total cup points
+# Relationship between variable moisture and total cup points
 
 ```{r warning=FALSE, out.width="80%", fig.width=6, echo=FALSE}
 coffee_moisture <- coffee_ratings %>%
@@ -364,7 +436,7 @@ coffee_moisture %>%
 
 ---
 
-# Relationship between virable color and total cup points
+# Relationship between variable color and total cup points
 
 ```{r warning=FALSE, out.width="80%", fig.width=6, echo=FALSE}
 coffee_color <- coffee_ratings %>%
@@ -379,3 +451,14 @@ coffee_color %>%
 ```
 
 ---
+
+class: center, middle
+
+# Conclusion: 
+## 
+
+---
+
+class: inverse, middle, center
+
+# Thanks for Watching
