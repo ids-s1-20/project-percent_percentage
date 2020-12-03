@@ -289,15 +289,15 @@ coffee_a %>%
 
 class: inverse, middle, center
 
-# Processing Method vs. Total Cup Points 
-# by Moisture & Color 
+# How Moisture & Color Influence Total Cup Points 
+# Under Same Processing Method 
 # Betty Wang
 
 ---
 
-# Relationship between variable moisture and total cup points
+# Relationship between moisture and total cup points
 
-```{r warning=FALSE, out.width="80%", fig.width=5.5, echo=FALSE}
+```{r warning=FALSE, out.width="80%", fig.width=5.5, fig.align = "center", echo=FALSE}
 coffee_moisture <- coffee_ratings %>%
   select("total_cup_points","moisture","processing_method")
 
@@ -309,9 +309,9 @@ ggplot(aes(x = moisture , y = total_cup_points , color = processing_method)) +
 
 ---
 
-# Relationship between variable moisture and total cup points
+# Relationship between moisture and total cup points
 
-```{r warning=FALSE, out.width="80%", fig.width=6, echo=FALSE}
+```{r warning=FALSE, out.width="80%", fig.width=6, fig.align = "center", echo=FALSE}
 coffee_moisture <- coffee_ratings %>%
   select("total_cup_points","moisture","processing_method")
 
@@ -325,9 +325,9 @@ coffee_moisture %>%
 
 ---
 
-# Relationship between variable color and total cup points
+# Relationship between color and total cup points
 
-```{r warning=FALSE, out.width="80%", fig.width=6, echo=FALSE}
+```{r warning=FALSE, out.width="80%", fig.width=6, fig.align = "center", echo=FALSE}
 coffee_color <- coffee_ratings %>%
   select("total_cup_points","color","processing_method")
 
