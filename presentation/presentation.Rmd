@@ -235,25 +235,18 @@ coffee_e %>%
   ggplot(coffee_e, mapping = aes(x = country_of_origin ,
              y = total_cup_points,
              color = processing_method)) +
-  geom_point() +
+  labs(title = "Processing method vs. Total cup points",
+       subtitle = "By country of origin") +
+  geom_point(size = 0.6) +
   ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  theme(axis.text.x = element_text(size = 7, angle = 70, hjust = 1))
 ```
 .footnote[
 Qi (Emily) Qiu
 ]
----
-```{r Emily-country_of_origin, echo = FALSE}
-# country of origin
-coffee_e %>% 
-  filter(processing_method == "Washed/Wet")%>%
-  ggplot(coffee_e, mapping = aes(x = country_of_origin ,
-             y = total_cup_points,
-             )) +
-  geom_point() +
-  ylim(55,95) +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1))
-```
+
 ---
 
 # Code
