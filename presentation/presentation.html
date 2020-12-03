@@ -212,40 +212,15 @@ class: inverse, middle, center
 # Country of origin
 &lt;img src="presentation_files/figure-html/Emily-country_of_origin-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 ---
-# Code
 
-
-```r
-# altitude
-ziling_coffee &lt;- coffee_ratings %&gt;%
-  filter(altitude_mean_meters &lt;= 4287&amp;!is.na(processing_method)) %&gt;%
-  select("total_cup_points","company","altitude_mean_meters","processing_method")
-
-ziling_coffee %&gt;%
-  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
-&lt;img src="presentation_files/figure-html/ziling—altitude-1.png" width="80%" /&gt;
+# Relationship between virable processing method and total cup points
+&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
-
-# Code
-
-
-```r
-# processing method
-ziling_coffee %&gt;%
-  ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
-  geom_point(alpha = 0.3) +
-  theme(axis.text.x = element_text(angle = 10, hjust = 1))
-```
-
-&lt;img src="presentation_files/figure-html/ziling_processing_method-1.png" width="80%" /&gt;
+# Relationship between virable ailtitude and total cup points
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="80%" style="display: block; margin: auto;" /&gt;
 
 ---
-
 # Code
 
 
@@ -291,19 +266,19 @@ coffee_a %&gt;%
 
 # Relationship between virable moisture and total cup points
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
 
 ---
 
 # Relationship between virable moisture and total cup points
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="80%" /&gt;
 
 ---
 
 # Relationship between virable color and total cup points
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
 
 ---
     </textarea>

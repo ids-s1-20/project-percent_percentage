@@ -278,34 +278,33 @@ coffee_e %>%
   theme(axis.text.x = element_text(size = 7, angle = 70, hjust = 1))
 ```
 ---
-# Code
 
-```{r ziling—altitude}
-# altitude
+# Relationship between virable processing method and total cup points
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
+# processing method
 ziling_coffee <- coffee_ratings %>%
   filter(altitude_mean_meters <= 4287&!is.na(processing_method)) %>%
   select("total_cup_points","company","altitude_mean_meters","processing_method")
 
 ziling_coffee %>%
-  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
-  ylim(55,95) +
-  geom_point(size = 0.08)
-```
-
----
-
-# Code
-
-```{r ziling_processing_method}
-# processing method
-ziling_coffee %>%
   ggplot(ziling_coffee, mapping = aes(x = processing_method, y = total_cup_points)) +
-  geom_point(alpha = 0.3) +
+  geom_point(alpha = 0.2) +
+  theme_minimal() +
   theme(axis.text.x = element_text(angle = 10, hjust = 1))
 ```
 
 ---
+# Relationship between virable ailtitude and total cup points
+```{r echo = FALSE, warning=FALSE, fig.height = 2.5, fig.width = 5,fig.align = "center",out.width="80%"}
+# altitude
+ziling_coffee %>%
+  ggplot(ziling_coffee, mapping = aes(x = altitude_mean_meters, y = total_cup_points, color = processing_method)) +
+  ylim(55,95) +
+  geom_point(size = 0.08) +
+  theme_minimal() 
+```
 
+---
 # Code
 
 ```{r Trixy—harvest_year}
