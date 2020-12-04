@@ -191,6 +191,9 @@ Data summary
 Our presentation can be found
 [here](https://media.ed.ac.uk/media/percentage-coffee+ratings/1_558ng9sa)
 
+slides is:
+<https://u-edinburgh.rstudio.cloud/23d6b421b9244e50bc6557c7b29ee967/file_show?path=%2Fcloud%2Fproject%2Fpresentation%2Fpresentation.html#1>
+
 ## Data
 
 Askalidis, Y. (2019, March 26). The data is in: Ethiopia has the best
