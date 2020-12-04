@@ -4,13 +4,44 @@ percentage-%
 
 ## Summary
 
-As we all know, nowadays people are more and more getting used to having
-a cup of coffee in the morning to start the day. Therefore, an
-increasing amount of coffee lovers are trying to research the quality of
-coffees so that higher quality of coffee can be provided to the world.
-In order to find out how the quality of coffee can be related to other
-factors such as farms or companies, we are employing the database from
-TidyTuesday with the source James LeDoux & Coffee Quality Database.
+Information of dataset
+
+Nowadays people are more and more getting used to having a cup of coffee
+in the morning to start the day. Therefore, an increasing amount of
+coffee lovers are attempting to research the quality of coffees, so that
+higher quality of coffee can be provided to the world. In order to find
+out how the quality of coffee can be related to other factors such as
+species, or altitude. We are employing the database from TidyTuesday
+with the source James LeDoux & Coffee Quality Database, and we will
+reorganize the collected data and import it into GitHub and use R studio
+to program ggplot for analysis.
+
+We are assuming that various variables such as the species, country of
+origin, and color of coffee samples might have the possibility to
+exploit the quality of the coffee. Therefore, we’ve selected the
+following variables from the data, including “total\_cup\_points”,
+“species”, “country\_of\_origin”, “company”, “altitude”,
+“harvest\_year”, “processing\_method”, “variety”, “color”, “moisture”.
+And in turn, explore whether there is a relationship between every
+single variable and total cup points while controlling other variables
+unchanged.
+
+Research Question Exploring the correlation between processing method
+and total cup points, and what other variables we choose will influence
+the total cup points under the same circumstance of processing method.
+
+Methodology There are a total of eight variables, there are four of us,
+each person is assigned two variables, and then we will use scatter
+plots and histograms to represent our discoveries from the datasets the,
+in order to find out the relationship between total cup points of each
+variable under the same processing method.
+
+Finding According to our analysis of data,Variables like processing
+method, altitude, variety, species, moisture and country of origin do
+impact the total cup points of coffee, which means If you want to choose
+good quality coffee, you should choose coffee with specific
+variables,such as honey processing method way and Ethiopia origin to get
+a good one.
 
 # Coffee Ratings
 
@@ -158,7 +189,7 @@ Data summary
 ## Presentation
 
 Our presentation can be found
-[here](https://ed-ac-uk.zoom.us/rec/share/sEO_4U6z9y3WYg7uwsW0mtR_31bUaAFVuZgdY630_Pq_XFjKi34k3MSE6yNJwgxK.InRPG_mm57aGrqXP?startTime=1607073542000).
+[here](https://ed-ac-uk.zoom.us/rec/share/KMdDBYit1GF0iDaHRzqaOmSTEkLkroy8KHLtjHxl0UYtxQPWxQsF7kT3vaRMhbZo.LsgEGcY-qe0NQvN-?startTime=1607071869000)
 
 ## Data
 
